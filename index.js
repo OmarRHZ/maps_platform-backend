@@ -1,10 +1,14 @@
 import express from 'express';
 
-import landplotsRoutes from './routes/landplots.routes.js';
+import landplotsRoutes from './landplots.routes.js';
 
 const app = express();
 
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
 
 app.use('/api', landplotsRoutes);
 
