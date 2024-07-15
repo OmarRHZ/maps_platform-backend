@@ -5,7 +5,9 @@ const router = Router();
 const prisma = new PrismaClient();
 
 const ACCEPTED_ORIGINS=[
-    'http://localhost:5173'
+    'http://localhost:5173',
+    'https://omarrhz.github.io',
+    'https://omarrhz.github.io/maps_platform/',
 ]
 //GET ALL LANDPLOTS
 router.get('/landplots', async (req, res) => {
