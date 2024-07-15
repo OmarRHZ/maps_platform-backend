@@ -1,6 +1,6 @@
 import express from 'express';
 
-import landplotsRoutes from './landplots.routes.js';
+import landplotsRoutes from './routes/landplots_routes.js';
 
 const app = express();
 
