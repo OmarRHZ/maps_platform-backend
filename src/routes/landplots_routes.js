@@ -7,14 +7,14 @@ const prisma = new PrismaClient();
 const ACCEPTED_ORIGINS=[
     'http://localhost:5173',
     'https://omarrhz.github.io',
+    'https://omarrhz.github.io/',
+    'github.io',
     'https://omarrhz.github.io/maps_platform/',
+    'https://omarrhz.github.io/maps_platform/#'
 ]
 //GET ALL LANDPLOTS
 router.get('/landplots', async (req, res) => {
-    const origin = req.header('origin');
-    if(ACCEPTED_ORIGINS.includes(origin) || !origin){
-        res.header('Access-Control-Allow-Origin', origin);
-    }
+
 
     const landplots = await prisma.landplots.findMany()
     if (!landplots) {
@@ -24,10 +24,7 @@ router.get('/landplots', async (req, res) => {
 });
 //GET A SINGLE LANDPLOT BY ID
 router.get('/landplots/:id', async (req, res) => {
-    const origin = req.header('origin');
-    if(ACCEPTED_ORIGINS.includes(origin) || !origin){
-        res.header('Access-Control-Allow-Origin', origin);
-    }
+
 
     const { id } = req.params;
     const FoundedLandplot = await prisma.landplots.findUnique({
@@ -43,10 +40,6 @@ router.get('/landplots/:id', async (req, res) => {
 
 //GET A SINGLE LANDPLOT BY NAME
 router.get('/landplots/name/:name', async (req, res) => {
-    const origin = req.header('origin');
-    if(ACCEPTED_ORIGINS.includes(origin) || !origin){
-        res.header('Access-Control-Allow-Origin', origin);
-    }
 
     const { name } = req.params;
     console.log(name);
@@ -63,10 +56,6 @@ router.get('/landplots/name/:name', async (req, res) => {
 
 //POST A NEW LANDPLOT
 router.post('/landplots', async (req, res) => {
-    const origin = req.header('origin');
-    if(ACCEPTED_ORIGINS.includes(origin) || !origin){
-        res.header('Access-Control-Allow-Origin', origin);
-    }
 
     const newLandplot= await prisma.landplots.create({
         data: req.body,
@@ -76,10 +65,6 @@ router.post('/landplots', async (req, res) => {
 //UPDATE A LANDPLOT
 
 router.put('/landplots/:id', async (req, res) => {
-    const origin = req.header('origin');
-    if(ACCEPTED_ORIGINS.includes(origin) || !origin){
-        res.header('Access-Control-Allow-Origin', origin);
-    }
 
     const { id } = req.params;
     const UpdatedLandplot = await prisma.landplots.update({

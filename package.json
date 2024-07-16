@@ -20,8 +20,9 @@
     "prisma": "^5.16.1"
   },
   "dependencies": {
+    "@prisma/client": "^5.16.1",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
-    "prisma": "^5.16.1",
-    "@prisma/client": "^5.16.1"
+    "prisma": "^5.16.1"
   }
 }
